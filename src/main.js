@@ -8,8 +8,9 @@ import { Server as Socket } from "socket.io";
 
 import authWebRouter from "./routers/web/auth.js";
 import homeWebRouter from "./routers/web/home.js";
+import infoWebRouter from "./routers/web/info.js";
 import productosApiRouter from "./routers/api/productos.js";
-//import productosWebRouter from "./routers/web/home.js";
+
 
 import addProductosHandlers from "./routers/ws/productos.js";
 import addMensajesHandlers from "./routers/ws/mensajes.js";
@@ -17,6 +18,7 @@ import addMensajesHandlers from "./routers/ws/mensajes.js";
 import { conectarDB } from "./controllerdb.js";
 import config from "./config.js";
 import dotenv from 'dotenv';
+import randomApiRouter from "./routers/api/randoms.js";
 //--------------------------------------------
 // instancio servidor, socket y api
 
@@ -66,7 +68,8 @@ app.use("/", productosApiRouter);
 // rutas del servidor web
 app.use("/", homeWebRouter);
 app.use("/", authWebRouter);
-
+app.use("/", infoWebRouter);
+app.use("/api", randomApiRouter);
 //--------------------------------------------
 // inicio el servidor
 
