@@ -4,7 +4,7 @@ export default {
         
     },
     mongoRemote: {
-        mongoUrl: 'mongodb+srv://dordonez:00Gd801011_@cluster0.thmqy.mongodb.net/ecommerce',
+        mongoUrl: process.env.MONGOURL || 'mongodb+srv://dordonez:00Gd801011_@cluster0.thmqy.mongodb.net/ecommerce',
         mongoOptions: { 
             useNewUrlParser: true, 
             useUnifiedTopology: true 
@@ -13,7 +13,7 @@ export default {
     sqlite3: {
         client: 'sqlite3',
         connection: {
-            filename: './DB/ecommerce.sqlite'
+            filename: process.env.FILESQLITE || './DB/ecommerce.sqlite'
         },
         useNullAsDefault: true,
         debug: true        

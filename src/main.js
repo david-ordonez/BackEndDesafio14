@@ -16,12 +16,15 @@ import addMensajesHandlers from "./routers/ws/mensajes.js";
 
 import { conectarDB } from "./controllerdb.js";
 import config from "./config.js";
+import dotenv from 'dotenv';
 //--------------------------------------------
 // instancio servidor, socket y api
 
 const app = express();
 const httpServer = new HttpServer(app);
 const io = new Socket(httpServer);
+
+dotenv.config();
 
 //--------------------------------------------
 // configuro el socket
